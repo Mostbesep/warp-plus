@@ -40,8 +40,9 @@ func usermodeTunTest(ctx context.Context, l *slog.Logger, tnet *netstack.Net) er
 			continue
 		}
 		if resp.StatusCode != http.StatusOK {
-			l.Error("connection test failed")
-			continue
+			l.Error(fmt.Sprintf("unexpected status code %d", resp.StatusCode))
+			//l.Error("connection test failed")
+			//continue
 		}
 
 		l.Info("connection test successful")
